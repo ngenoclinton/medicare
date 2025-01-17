@@ -93,7 +93,7 @@ export const ScheduleAppointmentSchema = z.object({
   reason: z.string().optional(),
   note: z.string().optional(),
   cancellationReason: z.string().optional(),
-});
+}); 
 
 export const CancelAppointmentSchema = z.object({
   primaryPhysician: z.string().min(2, "Select at least one doctor"),

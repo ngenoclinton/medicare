@@ -59,31 +59,31 @@ const  RegisterForm = ({user}:{user: User}) =>  {
     }
 
     try {
-    //   const patientData = {
-    //     userId: user.$id,
-    //     name: values.name,
-    //     email: values.email,
-    //     phone: values.phone,
-    //     birthDate: new Date(values.birthDate),
-    //     gender: values.gender,
-    //     address: values.address,
-    //     occupation: values.occupation,
-    //     emergencyContactName: values.emergencyContactName,
-    //     emergencyContactNumber: values.emergencyContactNumber,
-    //     primaryPhysician: values.primaryPhysician,
-    //     insuranceProvider: values.insuranceProvider,
-    //     insurancePolicyNumber: values.insurancePolicyNumber,
-    //     allergies: values.allergies,
-    //     currentMedication: values.currentMedication,
-    //     familyMedicalHistory: values.familyMedicalHistory,
-    //     pastMedicalHistory: values.pastMedicalHistory,
-    //     identificationType: values.identificationType,
-    //     identificationNumber: values.identificationNumber,
-    //     identificationDocument: values.identificationDocument
-    //       ? formData
-    //       : undefined,
-    //     privacyConsent: values.privacyConsent,
-    //   };
+      const patient = {
+        userId: user.$id,
+        name: values.name,
+        email: values.email,
+        phone: values.phone,
+        birthDate: new Date(values.birthDate),
+        gender: values.gender,
+        address: values.address,
+        occupation: values.occupation,
+        emergencyContactName: values.emergencyContactName,
+        emergencyContactNumber: values.emergencyContactNumber,
+        primaryPhysician: values.primaryPhysician,
+        insuranceProvider: values.insuranceProvider,
+        insurancePolicyNumber: values.insurancePolicyNumber,
+        allergies: values.allergies,
+        currentMedication: values.currentMedication,
+        familyMedicalHistory: values.familyMedicalHistory,
+        pastMedicalHistory: values.pastMedicalHistory,
+        identificationType: values.identificationType,
+        identificationNumber: values.identificationNumber,
+        identificationDocument: values.identificationDocument
+          ? formData
+          : undefined,
+        privacyConsent: values.privacyConsent,
+      };
         const patientData = {
             ...values,
             userId: user.$id,
@@ -92,7 +92,7 @@ const  RegisterForm = ({user}:{user: User}) =>  {
         }
 
       //@ts-ignore
-      const newPatient = await registerPatient(patientData);
+      const newPatient = await registerPatient(patient);
 
       if (newPatient) {
         router.push(`/patients/${user.$id}/new-appointment`);
@@ -101,7 +101,7 @@ const  RegisterForm = ({user}:{user: User}) =>  {
       console.log(error);
     }
 
-    setIsLoading(false);
+    // setIsLoading(false);
   };
 
   return(
