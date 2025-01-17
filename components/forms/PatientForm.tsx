@@ -13,7 +13,7 @@ import SubmitButton from "../SubmitButton"
 import { UserFormValidation } from "@/lib/validation"
 import { ifError } from "assert"
 import { useRouter } from "next/navigation"
-import { createUser } from "@/lib/patient.actions"
+import { createUser } from "@/lib/actions/patient.actions"
 
 
 export enum FormFieldType {
